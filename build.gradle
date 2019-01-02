@@ -1,0 +1,31 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+// 通常不需要更改这里，除非要加一些全局的项目构建配置
+buildscript {
+    
+    repositories {
+        // 代码托管仓库，为了引用这上面的开源项目。
+        google()
+        jcenter()
+    }
+    dependencies {
+        // gradle并不是专门为android项目开发的，java、C++都可以使用gradle来构建，所以需要gradle插件来构建Android项目
+        classpath 'com.android.tools.build:gradle:3.0.0-alpha6'
+        
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        // 代码托管仓库，为了引用这上面的开源项目。
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
