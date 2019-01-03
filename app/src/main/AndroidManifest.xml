@@ -16,9 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.MenuActivity">
-
-        </activity>
+        <activity android:name=".view.MenuActivity" />
+        <activity android:name=".view.ActLifeActivity" />
+        <activity
+            android:name=".view.DialogActivity"
+            android:theme="@android:style/Theme.Dialog" />
+        <activity android:name=".view.NormalActivity" />
+        <activity android:name=".view.UiWidgetActivity" />
+        <activity android:name=".view.LayoutActivity"></activity>
     </application>
 
 </manifest>

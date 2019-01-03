@@ -13,7 +13,7 @@ import android.widget.Toast;
 import www.qijianguo.com.firstcode.MainActivity;
 import www.qijianguo.com.firstcode.R;
 
-public class MenuActivity extends Activity {
+public class MenuActivity extends BaseActivity {
 
     private Button mButtonBack;
 

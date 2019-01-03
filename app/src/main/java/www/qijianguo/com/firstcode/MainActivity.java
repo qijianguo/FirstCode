@@ -7,11 +7,15 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import www.qijianguo.com.firstcode.view.ActLifeActivity;
+import www.qijianguo.com.firstcode.view.BaseActivity;
 import www.qijianguo.com.firstcode.view.MenuActivity;
+import www.qijianguo.com.firstcode.view.UiWidgetActivity;
 
-public class MainActivity extends Activity {
+public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private static final String TAG = "MainActivity";
 
@@ -20,6 +24,8 @@ public class MainActivity extends Activity {
 
     private Button mButtonMenu;
     private Button mButtonIntent;
+    private Button mButtonLife;
+    private Button mButtonUiWidget;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,35 +36,21 @@ public class MainActivity extends Activity {
 
     private void initView() {
         mButtonMenu = findViewById(R.id.btn_menu);
-        mButtonMenu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                switch (view.getId()) {
-                    case R.id.btn_menu:
-                        startMenuActivity();
-                        break;
-                }
-            }
-        });
+        mButtonMenu.setOnClickListener(this);
 
         mButtonIntent = findViewById(R.id.btn_intent);
-        mButtonIntent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("http://www.baidu.com"));
-                startActivity(intent);
-            }
-        });
-    }
+        mButtonIntent.setOnClickListener(this);
+
+        mButtonLife = findViewById(R.id.btn_life);
+        mButtonLife.setOnClickListener(this);
+
+        mButtonUiWidget = findViewById(R.id.btn_ui_widget);
+        mButtonUiWidget.setOnClickListener(this);
 
 
-    public void startMenuActivity() {
-        Intent intent = new Intent(this, MenuActivity.class);
-        // startActivity(intent);
-        // 返回数据给上一个活动
-        startActivityForResult(intent, TO_MENU);
+
     }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -77,7 +69,35 @@ public class MainActivity extends Activity {
                         break;
                 }
                 break;
+                
         }
 
+    }
+
+    @Override
+    public void onClick(View view) {
+        Intent intent = null;
+        switch (view.getId()) {
+            case R.id.btn_menu:
+                intent = new Intent(this, MenuActivity.class);
+                // startActivity(intent);
+                // 返回数据给上一个活动
+                startActivityForResult(intent, TO_MENU);
+                break;
+            case R.id.btn_intent:
+                intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("http://www.baidu.com"));
+                startActivity(intent);
+                break;
+            case R.id.btn_life:
+                intent = new Intent(MainActivity.this, ActLifeActivity.class);
+                startActivity(intent);
+                finish();
+                break;
+            case R.id.btn_ui_widget:
+                UiWidgetActivity.actionStart(this);
+                finish();
+                break;
+        }
     }
 }
