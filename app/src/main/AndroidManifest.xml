@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,7 +23,9 @@
             android:theme="@android:style/Theme.Dialog" />
         <activity android:name=".view.NormalActivity" />
         <activity android:name=".view.UiWidgetActivity" />
-        <activity android:name=".view.LayoutActivity"></activity>
+        <activity android:name=".view.LayoutActivity" />
+        <activity android:name=".view.CustomViewActivity" />
+        <activity android:name=".view.ListViewActivity"></activity>
     </application>
 
 </manifest>

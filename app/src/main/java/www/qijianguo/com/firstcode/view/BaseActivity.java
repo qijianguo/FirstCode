@@ -1,5 +1,6 @@
 package www.qijianguo.com.firstcode.view;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -23,6 +24,11 @@ public class BaseActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate: " + getClass().getSimpleName());
+        ActionBar actionBar = getActionBar();
+        if (actionBar != null) {
+            actionBar.hide();
+        }
+
         ActivityController.addActivity(this);
     }
 

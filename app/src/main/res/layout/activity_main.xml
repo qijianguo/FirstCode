@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="www.qijianguo.com.firstcode.MainActivity">
+    tools:context="www.qijianguo.com.firstcode.view.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,6 +38,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <Button
+            android:id="@+id/btn_custom_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="自定义View"/>
+
+        <Button
+            android:id="@+id/btn_list_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ListView"/>
 
     </LinearLayout>
 

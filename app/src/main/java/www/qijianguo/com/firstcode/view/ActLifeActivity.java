@@ -1,6 +1,5 @@
 package www.qijianguo.com.firstcode.view;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,7 +7,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import www.qijianguo.com.firstcode.MainActivity;
 import www.qijianguo.com.firstcode.R;
 
 public class ActLifeActivity extends BaseActivity implements View.OnClickListener{

@@ -1,19 +1,15 @@
-package www.qijianguo.com.firstcode;
+package www.qijianguo.com.firstcode.view;
 
-import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import www.qijianguo.com.firstcode.view.ActLifeActivity;
-import www.qijianguo.com.firstcode.view.BaseActivity;
-import www.qijianguo.com.firstcode.view.MenuActivity;
-import www.qijianguo.com.firstcode.view.UiWidgetActivity;
+import www.qijianguo.com.firstcode.R;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
@@ -26,6 +22,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private Button mButtonIntent;
     private Button mButtonLife;
     private Button mButtonUiWidget;
+    private Button mButtonCustomView;
+    private Button mButtonListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +45,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mButtonUiWidget = findViewById(R.id.btn_ui_widget);
         mButtonUiWidget.setOnClickListener(this);
 
+        mButtonCustomView = findViewById(R.id.btn_custom_view);
+        mButtonCustomView.setOnClickListener(this);
 
+        mButtonListView = findViewById(R.id.btn_list_view);
+        mButtonListView.setOnClickListener(this);
 
     }
 
@@ -98,6 +100,19 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 UiWidgetActivity.actionStart(this);
                 finish();
                 break;
+            case R.id.btn_custom_view:
+                CustomViewActivity.actionStart(this);
+                finish();
+                break;
+            case R.id.btn_list_view:
+                ListViewActivity.actionStart(this);
+                finish();
+                break;
         }
+    }
+
+    public static void actionStart(Context context) {
+        Intent intent  = new Intent(context, MainActivity.class);
+        context.startActivity(intent);
     }
 }
