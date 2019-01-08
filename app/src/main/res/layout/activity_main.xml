@@ -51,5 +51,24 @@
             android:text="ListView"/>
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_broadcast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Broadcast"/>
+        <Button
+            android:id="@+id/btn_custom_broadcast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Custom Broadcast"/>
+        <Button
+            android:id="@+id/btn_local_broadcast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LocalBroadcast"/>
+    </LinearLayout>
 
 </LinearLayout>

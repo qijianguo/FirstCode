@@ -24,6 +24,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private Button mButtonUiWidget;
     private Button mButtonCustomView;
     private Button mButtonListView;
+    private Button mButtonBroadcast;
+    private Button mButtonCustomBroadcast;
+    private Button mButtonLocalBroadcast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +53,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
         mButtonListView = findViewById(R.id.btn_list_view);
         mButtonListView.setOnClickListener(this);
+
+        mButtonBroadcast = findViewById(R.id.btn_broadcast);
+        mButtonBroadcast.setOnClickListener(this);
+
+        mButtonCustomBroadcast = findViewById(R.id.btn_custom_broadcast);
+        mButtonCustomBroadcast.setOnClickListener(this);
+
+        mButtonLocalBroadcast = findViewById(R.id.btn_local_broadcast);
+        mButtonLocalBroadcast.setOnClickListener(this);
 
     }
 
@@ -107,6 +119,20 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.btn_list_view:
                 ListViewActivity.actionStart(this);
                 finish();
+                break;
+            case R.id.btn_broadcast:
+                BroadcastActivity.actionStart(this);
+                break;
+            case R.id.btn_custom_broadcast:
+                intent = new Intent("www.qijianguo.com.firstcode.broadcast.CUSTOM_BROADCAST");
+                sendBroadcast(intent);
+                // 发送有序广播
+                // sendOrderedBroadcast(intent, null);
+                break;
+            case R.id.btn_local_broadcast:
+                LocalBroadcastActivity.actionStart(this);
+                break;
+            default:
                 break;
         }
     }

@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="www.qijianguo.com.firstcode">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -25,7 +28,31 @@
         <activity android:name=".view.UiWidgetActivity" />
         <activity android:name=".view.LayoutActivity" />
         <activity android:name=".view.CustomViewActivity" />
-        <activity android:name=".view.ListViewActivity"></activity>
+        <activity android:name=".view.ListViewActivity" />
+        <activity android:name=".view.BroadcastActivity" />
+
+        <!-- 静态注册广播 -->
+        <receiver
+            android:name=".broadcast.BootCompleteReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <!-- 自定义广播 -->
+        <receiver
+            android:name=".broadcast.CustomReceiver"
+            android:enabled="true"
+            android:exported="true">
+
+            <!-- priority 设置优先级，100保证一定会比小于他的广播优先收到 -->
+            <intent-filter android:priority="100">
+                <action android:name="www.qijianguo.com.firstcode.broadcast.CUSTOM_BROADCAST" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".view.LocalBroadcastActivity"></activity>
     </application>
 
 </manifest>
